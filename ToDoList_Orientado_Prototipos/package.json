@@ -11,5 +11,9 @@
   "dependencies": {
     "prompt-sync": "^4.2.0"
   },
+<<<<<<< HEAD
+  "type": "module"
+=======
   "type":"module"
+>>>>>>> 1f03ef0bc7d0728b940fa6aa17745d30029154ef
 }

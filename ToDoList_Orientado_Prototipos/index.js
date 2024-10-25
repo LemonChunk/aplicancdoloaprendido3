@@ -1,29 +1,28 @@
-import { listaTareas } from "./listaTareas.js";
-import { herramientas } from "./herramientas.js";
-import { gestorMenus } from "./gestorMenus.js";
-import { opcion1, opcion2, opcion3 } from "./opciones.js";
-const lista = new listaTareas(), m = new gestorMenus();
-let mainMenu=-1;
+import { buscarTarea, verTarea, crearTarea  } from "./funcionalidades.js";
+import { auxiliar} from "./auxiliar.js";
+import { menu } from "./menu.js";
+let opcionMenu=-1;
 do{
-    herramientas.limpiarPantalla();
-    mainMenu=m.menuPrincipal();
-    herramientas.limpiarPantalla();
-    switch(mainMenu){
+    auxiliar.limpiarPantalla();
+    opcionMenu=menu.menuPrincipal();
+    auxiliar.limpiarPantalla();
+    switch(opcionMenu){
         case "1":
-            opcion1(lista);
+            verTarea();
             break;
         case "2":
-            opcion2(lista);
+            buscarTarea();
             break;
         case "3":
-            opcion3(lista);
+            crearTarea();
             break;
         case "0":
-            console.log("Saliendo del programa...");
+            console.log("Saliendo...");
+            auxiliar.esperarTeclaParaContinuar();
             break;
         default:
-            console.log("ERROR: opción no válida.");
-            herramientas.esperarTeclaParaContinuar();
-            break;
+            console.log("Opción inválida");
+            auxiliar.esperarTeclaParaContinuar();
+        break;
     }
-}while(mainMenu!="0");
+}while(opcionMenu!=0);
